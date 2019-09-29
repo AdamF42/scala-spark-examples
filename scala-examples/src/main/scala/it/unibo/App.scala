@@ -9,12 +9,12 @@ object App {
 
   def main(args: Array[String]) {
     val r: Random.type = scala.util.Random
-    val randomArray: Array[Int] = (for (_ <- 1 to 10) yield r.nextInt(10)).toArray
-    val sortedArray: Array[Int] = SortingAlgorithmFactory
+    val randomList: List[Int] = (for (_ <- 1 to 10) yield r.nextInt(10)).toList
+    val sortedList: List[Int] = SortingAlgorithmFactory
       .getAlgorithm(SortingAlgorithmFactory.QUICK_SORT)
-      .sort(randomArray)
+      .sort(randomList)
 
-    sortedArray.foreach(println)
+    sortedList.foreach(println)
   }
 
 }
