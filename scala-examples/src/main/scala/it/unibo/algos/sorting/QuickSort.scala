@@ -1,8 +1,8 @@
-package it.unibo.algo
+package it.unibo.algos.sorting
 
 class QuickSort extends SortingAlgorithm{
 
-  def sort(xs: List[Int]): List[Int] = {
+  override def sort(xs: List[Int]): List[Int] = {
     if (xs.length <= 1) xs
     else {
       val pivot = xs(xs.length / 2)
