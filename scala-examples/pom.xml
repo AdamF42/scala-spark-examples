@@ -16,9 +16,9 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <encoding>UTF-8</encoding>
-    <scala.version>2.12.6</scala.version>
-    <scala.compat.version>2.12</scala.compat.version>
-    <spec2.version>4.2.0</spec2.version>
+    <scala.version>2.13.1</scala.version>
+    <scala.compat.version>2.13</scala.compat.version>
+    <spec2.version>4.7.1</spec2.version>
   </properties>
 
   <dependencies>
@@ -38,7 +38,7 @@
     <dependency>
       <groupId>org.scalatest</groupId>
       <artifactId>scalatest_${scala.compat.version}</artifactId>
-      <version>3.0.5</version>
+      <version>3.2.0-M1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -63,7 +63,7 @@
         <!-- see http://davidb.github.com/scala-maven-plugin -->
         <groupId>net.alchim31.maven</groupId>
         <artifactId>scala-maven-plugin</artifactId>
-        <version>3.3.2</version>
+        <version>4.2.0</version>
         <executions>
           <execution>
             <goals>
@@ -110,6 +110,7 @@
       </plugin>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.1</version>
           <configuration>
             <source>1.8</source>
             <target>1.8</target>
