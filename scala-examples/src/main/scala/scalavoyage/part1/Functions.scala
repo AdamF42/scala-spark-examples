@@ -1,5 +1,7 @@
 package scalavoyage.part1
 
+import scala.annotation.tailrec
+
 object Functions extends App {
 
   def aDummyFunction(a: String, b: Int): String =
@@ -16,12 +18,12 @@ object Functions extends App {
   println(aParameterlessFunction) // parameterless funs can be called also with name only
 
   // IN IMPERATIVE PROGRAMMING WE USE LOOPS. IN SCALA WE SHOULD USE RECURSION
-  def aRepetedFun(aString: String, n: Int): String = {
+  def aRepeatedFun(aString: String, n: Int): String = {
     if (n == 1) aString
-    else aString + aRepetedFun(aString, n - 1)
+    else aString + aRepeatedFun(aString, n - 1)
   }
 
-  println(aRepetedFun("hello", 3))
+  println(aRepeatedFun("hello", 3))
 
   def aFunWithSideEffects(aString: String): Unit = println(aString)
 
@@ -53,7 +55,7 @@ object Functions extends App {
     else fibonacci(n - 1) + fibonacci(n - 2)
 
   def isPrime(x: Int): Boolean = {
-    @scala.annotation.tailrec
+    @tailrec
     def isPrimeUntil(n: Int): Boolean = {
       if (n <= 1) true
       else x % n != 0 && isPrimeUntil(n - 1)
