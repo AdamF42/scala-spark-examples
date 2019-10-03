@@ -19,9 +19,9 @@ object CBNvsCBV extends App {
 
   def infinite(): Int = 1 + infinite()
 
-  def printFirst(x:Int, y: => Int): Unit = println(x)
+  def printFirst(x: Int, y: => Int): Unit = println(x)
 
- // printFirst( infinite(), 42) cause a stack overflow
+  // printFirst( infinite(), 42) cause a stack overflow
 
   // It works cause the by name parameter delays the evaluation till is required
   printFirst(42, infinite())

@@ -23,6 +23,7 @@ class PersonWithParamsFields(name: String, val age: Int) {
   def greet(name: String): Unit = println(s"${this.name} says: Hi, $name")
 
   //multiple constructor: they can be defined only using others constructors
-  def this(name: String) = this(name,0)
+  def this(name: String) = this(name, 0)
+
   def this() = this("Giacomo")
 }
