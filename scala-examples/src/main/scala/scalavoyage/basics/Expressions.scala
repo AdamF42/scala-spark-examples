@@ -1,4 +1,4 @@
-package scalavoyage.part1
+package scalavoyage.basics
 
 object Expressions extends App {
   // Instruction: something you tell the computer to do (DO)

@@ -1,4 +1,4 @@
-package scalavoyage.part1
+package scalavoyage.basics
 
 object CBNvsCBV extends App {
 

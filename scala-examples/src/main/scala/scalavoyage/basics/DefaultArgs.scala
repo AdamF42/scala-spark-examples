@@ -1,4 +1,4 @@
-package scalavoyage.part1
+package scalavoyage.basics
 
 import scala.annotation.tailrec
 

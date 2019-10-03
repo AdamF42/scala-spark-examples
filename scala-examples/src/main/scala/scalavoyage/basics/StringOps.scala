@@ -1,4 +1,4 @@
-package scalavoyage.part1
+package scalavoyage.basics
 
 object StringOps extends App {
   val str: String = "Hello, I'm the Big Boss"
