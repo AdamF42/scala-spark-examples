@@ -2,11 +2,15 @@ package scalavoyage.oop
 
 object MethodNotations extends App {
 
-  class Person(val name: String, favouriteMovie: String) {
+  class Person(val name: String, favouriteMovie: String, val age: Int = 0) {
 
     def likes(movie: String): Boolean = movie == favouriteMovie
 
     def hangOutWith(person: Person): String = s"${this.name} is hanging out with ${person.name}"
+
+    def +(nickname: String): Person = new Person(s"$name ($nickname)", favouriteMovie)
+
+    def unary_+ : Person = new Person(name, favouriteMovie, age+1)
 
     def unary_! : String = s"$name, what the heck?!"
 
@@ -33,7 +37,7 @@ object MethodNotations extends App {
 
   // postfix notation
   println(mary.isAlive)
-//  println(mary isAlive)
+  //  println(mary isAlive)
 
   // apply
   println(mary.apply())
