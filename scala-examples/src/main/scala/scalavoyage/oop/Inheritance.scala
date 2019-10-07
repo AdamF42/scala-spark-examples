@@ -1,6 +1,6 @@
 package scalavoyage.oop
 
-object InheritanceAndTraits extends App {
+object Inheritance extends App {
 
   // single class inheritance
   class Animal {
@@ -35,7 +35,10 @@ object InheritanceAndTraits extends App {
 
     override val creatureType: String = dogType
 
-    override def eat(): Unit = println("crunch, crunch")
+    override def eat(): Unit = {
+      super.eat()
+      println("crunch, crunch")
+    }
   }
 
   val dog = new Dog("domestic")
@@ -47,4 +50,8 @@ object InheritanceAndTraits extends App {
   val unknownAnimal: Animal = new Dog("K9")
   unknownAnimal.eat() // calls Dog eat method
 
+  // preventing overrides
+  // 1 - using keyword final on member of superclass
+  // 2 - using final on the entire class
+  // 3 - seal the class (sealed) = extend classes in this file but prevent extension in other files
 }
