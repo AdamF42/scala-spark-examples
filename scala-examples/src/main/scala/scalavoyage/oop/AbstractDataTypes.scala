@@ -4,26 +4,35 @@ object AbstractDataTypes extends App {
 
   // abstract
   abstract class Animal {
-    val creatureType:String
-    def eat(): Unit
+    val creatureType: String
+    // def eat(): Unit
   }
 
   class Dog extends Animal {
     val creatureType: String = "canine"
+
     def eat(): Unit = println("crunch")
   }
 
   // traits
-  trait Carnivore {
-    def eat(animal: Animal):Unit
+  trait Common {
+    def eat(animal: Animal)
   }
 
-  class Crocodile extends Animal with Carnivore {
+  trait Carnivore extends Common {
+    override def eat(animal: Animal): Unit = println("carnivore")
+  }
+
+  trait MaybeCarnivore extends Common {
+    override def eat(animal: Animal): Unit =  println("ciccio")
+  }
+
+  class Crocodile extends Animal with Carnivore with MaybeCarnivore {
     override val creatureType: String = "croc"
 
-    override def eat(): Unit = println("gnam")
+    //override def eat(): Unit = println("gnam")
 
-    override def eat(animal: Animal): Unit = println("I'm a crock and I'm eating S{animal.creatureType}")
+    //override def eat(animal: Animal): Unit = println(s"I'm a crock and I'm eating ${animal.creatureType}")
   }
 
   val dog = new Dog
