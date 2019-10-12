@@ -2,6 +2,12 @@ package scalavoyage.oop
 
 object Inheritance extends App {
 
+  val cat = new Cat
+  val dog = new Dog("domestic")
+  // type substitution (polymorphism)
+  val unknownAnimal: Animal = new Dog("K9")
+  cat.crunch()
+
   // single class inheritance
   class Animal {
     val creatureType = "wild"
@@ -16,9 +22,7 @@ object Inheritance extends App {
     }
   }
 
-  val cat = new Cat
-  cat.crunch()
-
+  // overriding
 
   // constructors
   class Person(name: String, age: Int) {
@@ -26,8 +30,8 @@ object Inheritance extends App {
   }
 
   class Adult(name: String, age: Int, idCard: String) extends Person(name)
-
-  // overriding
+  dog.eat()
+  println(dog.creatureType)
 
   //  class Dog(override val creatireType: String) extends Animal {
   class Dog(dogType: String) extends Animal {
@@ -40,14 +44,6 @@ object Inheritance extends App {
       println("crunch, crunch")
     }
   }
-
-  val dog = new Dog("domestic")
-  dog.eat()
-  println(dog.creatureType)
-
-
-  // type substitution (polymorphism)
-  val unknownAnimal: Animal = new Dog("K9")
   unknownAnimal.eat() // calls Dog eat method
 
   // preventing overrides

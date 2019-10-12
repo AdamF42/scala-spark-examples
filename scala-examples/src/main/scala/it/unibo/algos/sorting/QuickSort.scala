@@ -1,6 +1,6 @@
 package it.unibo.algos.sorting
 
-class QuickSort extends SortingAlgorithm{
+class QuickSort extends SortingAlgorithm {
 
   override def sort(xs: List[Int]): List[Int] = {
     if (xs.length <= 1) xs

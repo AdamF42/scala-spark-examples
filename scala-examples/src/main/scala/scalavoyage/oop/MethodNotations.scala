@@ -2,6 +2,19 @@ package scalavoyage.oop
 
 object MethodNotations extends App {
 
+  val mary = new Person("Mary", "Inception")
+  // "operators"
+  val mario = new Person("Mario", "La vita è bella")
+  println(mary.likes("Inception"))
+  println(mary likes "inceptions") // infix notation = operator notation (works only with methods with one param)
+  // prefix notation
+  val x = -1 // equivalent to 1.unary_-
+  println(mary hangOutWith mario)
+
+  // ALL OPERATORS ARE METHODS
+  println(1.+(2))
+  val y = 1.unary_- // unary prefix only works with - + ~ !
+
   class Person(val name: String, favouriteMovie: String, val age: Int = 0) {
 
     def likes(movie: String): Boolean = movie == favouriteMovie
@@ -10,7 +23,7 @@ object MethodNotations extends App {
 
     def +(nickname: String): Person = new Person(s"$name ($nickname)", favouriteMovie)
 
-    def unary_+ : Person = new Person(name, favouriteMovie, age+1)
+    def unary_+ : Person = new Person(name, favouriteMovie, age + 1)
 
     def unary_! : String = s"$name, what the heck?!"
 
@@ -18,21 +31,6 @@ object MethodNotations extends App {
 
     def apply(): String = s"Hi, my name is $name and my favourite movie is $favouriteMovie"
   }
-
-  val mary = new Person("Mary", "Inception")
-  println(mary.likes("Inception"))
-  println(mary likes "inceptions") // infix notation = operator notation (works only with methods with one param)
-
-  // "operators"
-  val mario = new Person("Mario", "La vita è bella")
-  println(mary hangOutWith mario)
-
-  // ALL OPERATORS ARE METHODS
-  println(1.+(2))
-
-  // prefix notation
-  val x = -1 // equivalent to 1.unary_-
-  val y = 1.unary_- // unary prefix only works with - + ~ !
   println(!mary)
 
   // postfix notation

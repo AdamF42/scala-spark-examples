@@ -2,6 +2,22 @@ package scalavoyage.oop
 
 object AbstractDataTypes extends App {
 
+  val dog = new Dog
+  val crocodile = new Crocodile
+
+  // traits
+  trait Common {
+    def eat(animal: Animal)
+  }
+
+  trait Carnivore extends Common {
+    override def eat(animal: Animal): Unit = println("carnivore")
+  }
+
+  trait MaybeCarnivore extends Common {
+    override def eat(animal: Animal): Unit = println("ciccio")
+  }
+
   // abstract
   abstract class Animal {
     val creatureType: String
@@ -14,19 +30,6 @@ object AbstractDataTypes extends App {
     def eat(): Unit = println("crunch")
   }
 
-  // traits
-  trait Common {
-    def eat(animal: Animal)
-  }
-
-  trait Carnivore extends Common {
-    override def eat(animal: Animal): Unit = println("carnivore")
-  }
-
-  trait MaybeCarnivore extends Common {
-    override def eat(animal: Animal): Unit =  println("ciccio")
-  }
-
   class Crocodile extends Animal with Carnivore with MaybeCarnivore {
     override val creatureType: String = "croc"
 
@@ -34,9 +37,6 @@ object AbstractDataTypes extends App {
 
     //override def eat(animal: Animal): Unit = println(s"I'm a crock and I'm eating ${animal.creatureType}")
   }
-
-  val dog = new Dog
-  val crocodile = new Crocodile
 
   crocodile.eat(dog)
 

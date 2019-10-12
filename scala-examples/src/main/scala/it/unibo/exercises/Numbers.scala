@@ -22,13 +22,13 @@ trait TotOrder[T] {
 
   def compare(r: T): Double // positive if this is greater
 
-  def >(r: T): Boolean = (this compare r) > 0
+  def >=(r: T): Boolean = !(this < r)
 
   def <(r: T): Boolean = (this compare r) < 0
 
-  def >=(r: T): Boolean = !(this < r)
-
   def <=(r: T): Boolean = !(this > r)
+
+  def >(r: T): Boolean = (this compare r) > 0
 
 }
 
