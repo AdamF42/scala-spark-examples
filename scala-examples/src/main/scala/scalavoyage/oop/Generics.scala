@@ -9,7 +9,7 @@ object Generics extends App {
   val invariantAnimalList: InvariantList[Animal] = new InvariantList[Animal]
   val trainer: Trainer[Cat] = new Trainer[Animal]
   val cage = new Cage(new Dog)
-  val newCage = new Cage(new Car) // will not work
+  //val newCage = new Cage(new Car) // will not work
 
   class MyList[+A] {
 
