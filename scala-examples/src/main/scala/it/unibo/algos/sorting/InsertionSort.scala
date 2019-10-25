@@ -4,12 +4,13 @@ class InsertionSort extends SortingAlgorithm {
 
   override def sort(listToSort: List[Int]): List[Int] = listToSort match {
     case List() => List()
-    case y :: ys => insert(y, sort(ys))
+    case f :: r => insert(f, sort(r))
   }
 
   def insert(x: Int, xs: List[Int]): List[Int] = xs match {
-    case List() => List(x)
-    case y :: ys => if (x < y) x :: xs else y :: insert(x, ys)
+    case Nil => List(x)
+    case f :: r =>
+      if (x < f) x :: xs
+      else f :: insert(x, r)
   }
-
 }
