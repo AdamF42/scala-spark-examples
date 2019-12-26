@@ -30,10 +30,10 @@ abstract class MyList[+A] {
   def filter(predicate: MyPredicate[A]): MyList[A]
 
   //concatenation
-  def ++[B >: A](list: MyList[B]): MyList[A]
+  def ++[B >: A](list: MyList[B]): MyList[B]
 }
 
-object Empty extends MyList[Nothing] {
+case object Empty extends MyList[Nothing] {
 
   override def head: Nothing = throw new NoSuchElementException
 
@@ -51,11 +51,11 @@ object Empty extends MyList[Nothing] {
 
   def filter(predicate: MyPredicate[Nothing]): MyList[Nothing] = Empty
 
-  override def ++[B >: Nothing](list: MyList[B]): MyList[Nothing] = list
+  override def ++[B >: Nothing](list: MyList[B]): MyList[B] = list
 }
 
 
-class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
+case class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
 
   override def head: A = h
 
@@ -78,7 +78,7 @@ class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
     else t.filter(predicate)
   }
 
-  override def ++[B >: A](list: MyList[B]): MyList[A] = new Cons(h, t ++ list)
+  override def ++[B >: A](list: MyList[B]): MyList[B] = new Cons(h, t ++ list)
 
   override def flatMap[B](transformer: MyTransformer[A, MyList[B]]): MyList[B] = {
     transformer.transform(h) ++ t.flatMap(transformer)
