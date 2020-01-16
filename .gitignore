@@ -2,3 +2,7 @@
 scala-examples/target/
 
 scala-examples/.idea/
+
+spark/ml-100k/
+
+spark/SparkScala3/
